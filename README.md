@@ -75,11 +75,12 @@ Pour faire fonctionner ce projet, vous devez avoir les bases de données fonctio
 
 ## Import des donées dans neo4J
 
-Mettre les fichiers .csv dans le répertoire import de neo4J
-Exécuter la commande suivante à la racine du répertoire où neo4J est installé `bin/neo4j-admin import --nodes:Movie .\import\movies.csv --nodes:Actor .\import\actors.csv --relationships .\import\roles.csv`
+Mettre les fichiers .csv dans le répertoire import de neo4J.
+Exécuter la commande suivante à la racine du répertoire où neo4J est installé `bin/neo4j-admin import --nodes:Movie .\import\movies.csv --nodes:Actor .\import\actors.csv --relationships .\import\roles.csv`.
 
 
 ## Import des donées dans mongoDB
 
-Créer le dossier data/db
-A partir des données 'mongodb-102/src/data/Top_1000_Actors_and_Actresses.csv', exécuter `'mongoimport -d workshop -c actors --type csv --file Top_1000_Actors_and_Actresses.csv --headerline'`
+Créer le dossier data/db.
+
+A partir des données 'mongodb-102/src/data/Top_1000_Actors_and_Actresses.csv', exécuter `'mongoimport -d workshop -c actors --type csv --file Top_1000_Actors_and_Actresses.csv --headerline'`.
