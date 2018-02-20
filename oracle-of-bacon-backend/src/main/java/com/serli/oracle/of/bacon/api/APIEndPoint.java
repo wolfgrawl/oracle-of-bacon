@@ -82,6 +82,8 @@ public class APIEndPoint {
             }
         }
 
+
+        redisRepository.setLastSearch(actorName);
         return myJsonArray.toString();
     }
 
