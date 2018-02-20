@@ -1,12 +1,11 @@
 package com.serli.oracle.of.bacon.repository;
 
+import org.neo4j.driver.v1.*;
 
-import org.neo4j.driver.v1.AuthTokens;
-import org.neo4j.driver.v1.Driver;
-import org.neo4j.driver.v1.GraphDatabase;
-import org.neo4j.driver.v1.Session;
-
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 
 public class Neo4JRepository {
     private final Driver driver;
@@ -15,11 +14,37 @@ public class Neo4JRepository {
         this.driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "password"));
     }
 
+    //Adrien Cadoret et Paul Defois m'ont expliqué le concept
     public List<?> getConnectionsToKevinBacon(String actorName) {
-        Session session = driver.session();
+        ArrayList<Object> results = new ArrayList<>();
+        String request = "MATCH p=shortestPath((bacon:Actor {name:\"Bacon, Kevin (I)\"})-[*]-(actor:Actor {name:\""+actorName+"\"}))  RETURN DISTINCT p";
 
-        // TODO implement Oracle of Bacon
-        return null;
+        try (Session session = driver.session())
+        {
+            StatementResult myStatementResult = session.run(request);
+
+            List<Record> myRecords = statementResult.list();
+
+            if(!myRecords.isEmpty()) {
+
+                Path path = ((PathValue) myRecords.get(0).values().get(0)).asPath();
+
+                Iterable<Node> myNodes = path.nodes();
+                for(Node n: myNodes)
+                    results.add(n);
+
+                Iterable<Relationship> myRelationships = path.relationships();
+                for(Relationship r: myRelationships)
+                    results.add(r);
+
+            }
+        }
+        catch (Exception e){
+            System.out.println("Exception : " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return results;
     }
 
     public static abstract class GraphItem {
