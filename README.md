@@ -62,3 +62,19 @@ La livraison de votre travail s'effectue à l'aide d'une pull-request sur le rep
 <span style="color:red; font-size: 2em;">
 **Vous devez commencer par forker le repository https://github.com/nosql-bootcamp/oracle-of-bacon**
 </span>
+
+
+## Les prérequis
+
+Pour faire fonctionner ce projet, vous devez avoir les bases de données fonctionnants sur les ports suivants:
+
+Neo4J - localhost:7687
+Redis - localhost:6379
+ElasticSearch - localhost:9200
+Mongo - localhost:27017
+
+## Import des donées dans neo4J
+
+Mettre les fichiers .csv dans le répertoire import de neo4J
+Exécuter la commande suivante à la racine du répertoire où neo4J est installé `bin/neo4j-admin import --nodes:Movie .\import\movies.csv --nodes:Actor .\import\actors.csv --relationships .\import\roles.csv`
+
