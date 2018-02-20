@@ -68,10 +68,10 @@ La livraison de votre travail s'effectue à l'aide d'une pull-request sur le rep
 
 Pour faire fonctionner ce projet, vous devez avoir les bases de données fonctionnants sur les ports suivants:
 
-Neo4J - localhost:7687
-Redis - localhost:6379
-ElasticSearch - localhost:9200
-Mongo - localhost:27017
+* Neo4J - localhost:7687
+* Redis - localhost:6379
+* ElasticSearch - localhost:9200
+* Mongo - localhost:27017
 
 ## Import des donées dans neo4J
 
