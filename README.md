@@ -59,10 +59,6 @@ L'évaluation de votre travail sera effectuée selon les critères suivants :
 
 La livraison de votre travail s'effectue à l'aide d'une pull-request sur le repository https://github.com/nosql-bootcamp/oracle-of-bacon.
 
-<span style="color:red; font-size: 2em;">
-**Vous devez commencer par forker le repository https://github.com/nosql-bootcamp/oracle-of-bacon**
-</span>
-
 
 ##Commandes du TP
 * Import des données sur neo4j:
