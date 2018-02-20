@@ -81,5 +81,5 @@ Pour faire fonctionner ce projet, vous devez avoir les bases de données fonctio
 
 ## Import des donées dans mongoDB
 
-* Créer le dossier data/db
+* Créer le répertoire data/db
 * A partir des données 'mongodb-102/src/data/Top_1000_Actors_and_Actresses.csv', exécuter `'mongoimport -d workshop -c actors --type csv --file Top_1000_Actors_and_Actresses.csv --headerline'`.
