@@ -64,5 +64,6 @@ La livraison de votre travail s'effectue à l'aide d'une pull-request sur le rep
 </span>
 
 
+##Commandes du TP
 * Import des données sur neo4j:
-`neo4j_home$ bin/neo4j-admin import --nodes import/movies.csv --nodes import/actors.csv --relationships import/roles.csv`
+`neo4j_home$ bin/neo4j-admin import --nodes:Movie import/movies.csv --nodes:Person import/actors.csv --relationships import/roles.csv`
