@@ -64,5 +64,5 @@ La livraison de votre travail s'effectue à l'aide d'une pull-request sur le rep
 </span>
 
 
-Import des données sur neo4j:
+*Import des données sur neo4j:
 `neo4j_home$ bin/neo4j-admin import --nodes import/movies.csv --nodes import/actors.csv --relationships import/roles.csv`
