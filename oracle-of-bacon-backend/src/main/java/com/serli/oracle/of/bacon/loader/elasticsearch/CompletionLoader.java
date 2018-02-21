@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class CompletionLoader {
     private static AtomicInteger count = new AtomicInteger(0);
+    private final static Stack<BulkRequest> myBulkrequest = new Stack<>();
 
     public static void main(String[] args) throws IOException, InterruptedException {
         RestHighLevelClient client = ElasticSearchRepository.createClient();
@@ -22,16 +23,22 @@ public class CompletionLoader {
         }
 
         String inputFilePath = args[0];
+
+        myBulkrequest.push(new BulkRequest());
+
         try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(inputFilePath))) {
             bufferedReader
                     .lines()
                     .forEach(line -> {
-                        //TODO ElasticSearch insert
-                        System.out.println(line);
+                        Map<String, Object> jsonMap = new HashMap<>();
+                        jsonMap.put("fullname", line);
+                        myBulkrequest.peek().add(
+                                new IndexRequest("imdb", "actor").source(jsonMap)
+                        );
                     });
         }
 
-        System.out.println("Inserted total of " + count.get() + " actors");
+        System.out.println("Inserted total of " + count.get() + " of " + initialNumberOfLine.get() + " actors");
 
         client.close();
     }
