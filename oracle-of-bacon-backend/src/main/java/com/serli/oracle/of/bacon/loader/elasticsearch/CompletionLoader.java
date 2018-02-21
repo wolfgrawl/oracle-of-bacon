@@ -2,11 +2,16 @@ package com.serli.oracle.of.bacon.loader.elasticsearch;
 
 import com.serli.oracle.of.bacon.repository.ElasticSearchRepository;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.action
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+import java.util.stream.Stream;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class CompletionLoader {
