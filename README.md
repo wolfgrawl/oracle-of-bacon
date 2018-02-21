@@ -77,22 +77,3 @@ Pour faire fonctionner ce projet, vous devez avoir les bases de données fonctio
 
 * Mettre les fichiers .csv dans le répertoire import de neo4J.
 * Exécuter la commande suivante à la racine du répertoire où neo4J est installé `bin/neo4j-admin import --nodes:Movie .\import\movies.csv --nodes:Actor .\import\actors.csv --relationships .\import\roles.csv`.
-
-
-## Import des donées dans elasticSearch
-
-* Pour importer les données d'Acteurs.csv dans elestastic search, utiliser la commande suivante  `curl -X PUT "localhost:9200/imdb?pretty" -H "Content-Type: application/json" -d 'Actors.csv' -d'
-{
-  "mappings": {
-    "actors": {
-      "properties": {
-        "suggest": {
-          "type": "completion"
-        },
-        "name": {
-          "type": "keyword"
-        }
-      }
-    }
-  }
-}'`
