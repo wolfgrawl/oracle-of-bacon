@@ -14,7 +14,7 @@ public class Neo4JRepository {
         this.driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "password"));
     }
 
-    //Adrien Cadoret et Paul Defois m'ont expliqué le concept
+
     public List<?> getConnectionsToKevinBacon(String actorName) {
         ArrayList<Object> results = new ArrayList<>();
         String request = "MATCH p=shortestPath((bacon:Actor {name:\"Bacon, Kevin (I)\"})-[*]-(actor:Actor {name:\""+actorName+"\"}))  RETURN DISTINCT p";
