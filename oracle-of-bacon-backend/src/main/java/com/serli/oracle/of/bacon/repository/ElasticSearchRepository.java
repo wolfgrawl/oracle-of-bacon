@@ -3,9 +3,14 @@ package com.serli.oracle.of.bacon.repository;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.action.search.*;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.index.query.TermQueryBuilder;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.ArrayList;
 
 public class ElasticSearchRepository {
 
@@ -25,7 +30,17 @@ public class ElasticSearchRepository {
     }
 
     public List<String> getActorsSuggests(String searchQuery) throws IOException {
-        // TODO implement suggest
-        return null;
+
+        List<String> results = new ArrayList<>();
+
+        SearchRequest mySearchRequest = new SearchRequest("imdb").types("actors").searchType(
+                SearchType.DFS_QUERY_THEN_FETCH).source(new SearchSourceBuilder().size(5).query(new TermQueryBuilder("name", searchQuery))
+                );
+
+        SearchResponse mySearchResponse = client.search(mySearchRequest);
+        for (SearchHit searchHit : response.getHits().getHits())
+            result.add(searchHit.getId());
+
+        return results;
     }
 }
