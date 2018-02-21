@@ -59,6 +59,7 @@ L'évaluation de votre travail sera effectuée selon les critères suivants :
 
 La livraison de votre travail s'effectue à l'aide d'une pull-request sur le repository https://github.com/nosql-bootcamp/oracle-of-bacon.
 
+<<<<<<< HEAD
 <span style="color:red; font-size: 2em;">
 **Vous devez commencer par forker le repository https://github.com/nosql-bootcamp/oracle-of-bacon**
 </span>
@@ -77,3 +78,9 @@ Pour faire fonctionner ce projet, vous devez avoir les bases de données fonctio
 
 * Mettre les fichiers .csv dans le répertoire import de neo4J.
 * Exécuter la commande suivante à la racine du répertoire où neo4J est installé `bin/neo4j-admin import --nodes:Movie .\import\movies.csv --nodes:Actor .\import\actors.csv --relationships .\import\roles.csv`.
+=======
+
+## Commandes du TP
+* Import des données sur neo4j:
+`neo4j_home$ bin/neo4j-admin import --nodes:Movie import/movies.csv --nodes:Person import/actors.csv --relationships import/roles.csv`
+>>>>>>> 32edba267cfd5eff26c0b615768e93abd334c490
