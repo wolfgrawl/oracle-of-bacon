@@ -37,9 +37,7 @@ public class CompletionLoader {
                     .forEach(line -> {
                         Map<String, Object> jsonMap = new HashMap<>();
                         jsonMap.put("fullname", line);
-                        myBulkrequest.peek().add(
-                                new IndexRequest("imdb", "actor").source(jsonMap)
-                        );
+                        myBulkrequest.peek().add(new IndexRequest("imdb", "actor").source(jsonMap));
                     });
         }
 
